@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テキスト、画像の中央ぞろえについて</title>
+    <link rel="stylesheet" href="中央寄せ.css">
+</head>
+<body>
+    <div>
+        <span class="ng-1">中央寄せにしたいinline要素に対して直接text-align: center;を使っても効果がない</span>
+        <br class="ng-1">
+        <img src="img/on.jpg" alt="">
+    </div>
+    <div class="ok-1">
+        <span>中央寄せにしたい要素の親block要素にtext-aligh: center;を使うと反映される。</span>
+        <br>
+        <img src="img/on.jpg" alt="">
+    </div>
+    <div class="ng-2">
+        <div>親block要素そのもの(赤い部分)の中央寄せはtext-alignではできない。(中身のテキストは動く)</div>
+    </div>
+    <div class="ok-2">
+        <div>widthを指定して、margin:0 auto;で中央寄せにできる。</div>
+    </div>
+    <div class="ok-3">
+        <div>中身のテキストを左寄せにしたい場合は子要素に対してtext-align:left;を使うとよい。</div>
+        <div>右寄せもleftをrightに変えればできる。</div>
+    </div>
+    <br>
+    <div class="n">
+        <div>次に縦向きの中央寄せを行う。</div>
+    </div>
+    <div class="ng-3">
+        <span>text-align: center; では縦方向の中央には寄らない。</span>
+    </div>
+    <div class="ok-4">
+        <span>hight, line-height に同じ値を入力すると縦中央による。(ただしテキストが1行の場合のみ)</span>
+    </div>
+    <div class="ok-5">
+        <div>子要素に直接padding: (親height/2 <= n) 0;で複数行でも中央ぞろいになる。</div>
+    </div>
+    <div class="ok-6oya">
+        <div>親要素にはposition: relative;を指定する。</div>
+        <div class="ok-6">
+            <div>block要素を直接動かすときにはposition:absolute;を使う。</div>
+            <div>親要素(ok-6oya)の中央(top:50%;)から自分の高さの半分上にずらした位置(transform: translateY(-50%))にok-6が配置される。</div>
+        </div>
+    </div>
+    <div class="ok-7oya">
+        <div class="ok-7">
+            <div>flexboxでは親要素にdisplay:flex; とalign-items: centerだけでOK。</div>
+        </div>
+    </div>
+</body>
+</html>
